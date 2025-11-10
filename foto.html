@@ -8,7 +8,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
     body {
-      height: 100vh;
+      min-height: 100vh; /* Ubah dari height: 100vh agar bisa scroll */
+      height: auto; /* Izinkan tinggi otomatis */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,9 +20,10 @@
       color: white;
       font-family: 'Poppins', sans-serif;
       text-align: center;
-      overflow: hidden;
+      overflow: auto; /* Ubah dari hidden agar bisa scroll */
       position: relative;
       padding: 20px;
+      box-sizing: border-box; /* Tambahkan untuk konsistensi */
     }
 
     .particle {
@@ -171,23 +173,50 @@
       to { opacity: 1; }
     }
 
+    /* Responsivitas yang lebih baik */
+    @media (max-width: 1024px) {
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 15px;
+        aspect-ratio: 2 / 3;
+      }
+      h1 { font-size: 2.2em; }
+      .icon { width: 35px; height: 35px; }
+    }
+
     @media (max-width: 768px) {
       .photo-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 15px;
+        aspect-ratio: 2 / 3;
       }
       h1 { font-size: 2em; }
       .icon { width: 30px; height: 30px; }
+      body { padding: 15px; }
     }
 
     @media (max-width: 480px) {
       .photo-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
         gap: 10px;
+        aspect-ratio: auto; /* Agar fleksibel */
+        max-width: none; /* Hapus batas untuk HP */
       }
-      h1 { font-size: 1.8em; }
+      h1 { font-size: 1.8em; margin-bottom: 20px; }
+      .icons { margin-bottom: 15px; }
+      .icon { width: 25px; height: 25px; margin: 0 5px; }
       body { padding: 10px; }
+      .particle { display: none; } /* Sembunyikan partikel untuk performa di HP */
+    }
+
+    @media (max-width: 320px) {
+      h1 { font-size: 1.5em; }
+      .close { width: 40px; height: 40px; font-size: 1.5em; }
+      .photo-grid { gap: 8px; }
+      body { padding: 5px; }
     }
   </style>
 </head>
