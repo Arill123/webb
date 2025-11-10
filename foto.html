@@ -21,15 +21,15 @@
       text-align: center;
       overflow: hidden;
       position: relative;
-      padding: 20px;
+      padding: 10px; /* Dikurangi dari 20px */
       box-sizing: border-box;
     }
 
     /* Efek partikel sederhana (titik jatuh) */
     .particle {
       position: absolute;
-      width: 6px;
-      height: 6px;
+      width: 4px; /* Dikurangi dari 6px */
+      height: 4px; /* Dikurangi dari 6px */
       background: rgba(255, 255, 255, 0.8);
       border-radius: 50%;
       animation: fall 12s linear infinite;
@@ -49,9 +49,9 @@
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2em; /* Dikurangi dari 2.5em */
       font-weight: 600;
-      margin-bottom: 30px;
+      margin-bottom: 20px; /* Dikurangi dari 30px */
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       animation: bounce 1s ease-in-out both;
     }
@@ -65,13 +65,13 @@
     .icons {
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px; /* Dikurangi dari 20px */
     }
 
     .icon {
-      width: 40px;
-      height: 40px;
-      margin: 0 10px;
+      width: 30px; /* Dikurangi dari 40px */
+      height: 30px; /* Dikurangi dari 40px */
+      margin: 0 8px; /* Dikurangi dari 10px */
       fill: white;
       animation: float 4s ease-in-out infinite;
     }
@@ -88,7 +88,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      gap: 20px;
+      gap: 15px; /* Dikurangi dari 20px */
       max-width: 900px;
       width: 100%;
       aspect-ratio: 3 / 2;
@@ -98,7 +98,7 @@
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
-      border-radius: 15px;
+      border-radius: 10px; /* Dikurangi dari 15px */
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       opacity: 0;
       transform: scale(0.8) rotate(-5deg);
@@ -157,15 +157,15 @@
 
     .close {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 15px; /* Dikurangi dari 20px */
+      right: 15px; /* Dikurangi dari 20px */
       color: white;
-      font-size: 2em;
+      font-size: 1.5em; /* Dikurangi dari 2em */
       cursor: pointer;
       background: rgba(0, 0, 0, 0.5);
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 40px; /* Dikurangi dari 50px */
+      height: 40px; /* Dikurangi dari 50px */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -186,42 +186,43 @@
       .photo-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        gap: 15px;
+        gap: 12px; /* Dikurangi dari 15px */
         aspect-ratio: 2 / 3;
       }
-      h1 { font-size: 2.2em; }
-      .icon { width: 35px; height: 35px; }
+      h1 { font-size: 1.8em; } /* Dikurangi dari 2.2em */
+      .icon { width: 28px; height: 28px; } /* Dikurangi dari 35px */
     }
 
     @media (max-width: 768px) {
       .photo-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        gap: 15px;
+        gap: 10px; /* Dikurangi dari 15px */
         aspect-ratio: 2 / 3;
       }
-      h1 { font-size: 2em; }
-      .icon { width: 30px; height: 30px; }
-      body { padding: 15px; }
+      h1 { font-size: 1.6em; } /* Dikurangi dari 2em */
+      .icon { width: 25px; height: 25px; } /* Dikurangi dari 30px */
+      body { padding: 8px; } /* Dikurangi dari 15px */
     }
 
     @media (max-width: 480px) {
       .photo-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 1fr);
-        gap: 10px;
+        gap: 8px; /* Dikurangi dari 10px */
         aspect-ratio: auto;
       }
-      h1 { font-size: 1.8em; margin-bottom: 20px; }
-      .icons { margin-bottom: 15px; }
-      .icon { width: 25px; height: 25px; margin: 0 5px; }
-      body { padding: 10px; height: auto; min-height: 100vh; }
+      h1 { font-size: 1.4em; margin-bottom: 15px; } /* Dikurangi dari 1.8em */
+      .icons { margin-bottom: 10px; } /* Dikurangi dari 15px */
+      .icon { width: 20px; height: 20px; margin: 0 5px; } /* Dikurangi dari 25px */
+      body { padding: 5px; height: auto; min-height: 100vh; } /* Dikurangi dari 10px */
       .particle { display: none; } /* Sembunyikan partikel di mobile untuk performa */
     }
 
     @media (max-width: 320px) {
-      h1 { font-size: 1.5em; }
-      .close { width: 40px; height: 40px; font-size: 1.5em; }
+      h1 { font-size: 1.2em; } /* Dikurangi dari 1.5em */
+      .close { width: 35px; height: 35px; font-size: 1.2em; } /* Dikurangi dari 40px */
+      .photo-grid { gap: 5px; } /* Dikurangi dari 8px */
     }
   </style>
 </head>
