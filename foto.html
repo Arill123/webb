@@ -86,12 +86,13 @@
 
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 600px; /* Dikurangi dari 900px agar lebih kecil */
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 10px;
       width: 100%;
-      aspect-ratio: 3 / 2;
+      max-width: 900px;
+      aspect-ratio: 5 / 4;
+      margin: 0 auto;
     }
 
     img {
@@ -116,68 +117,20 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      animation: fadeIn 0.3s ease;
+    /* Efek zoom in-place */
+    img.zoomed {
+      position: relative;
+      z-index: 10;
+      transform: scale(2) !important; /* Membesar 2x */
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    .modal.show {
-      display: flex;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      transform: scale(0.9);
-      transition: transform 0.3s ease;
-    }
-
-    .modal.show img {
-      transform: scale(1);
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: white;
-      font-size: 2em;
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background 0.3s ease;
-    }
-
-    .close:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Responsivitas dengan tetap 3x2 tapi lebih kecil */
+    /* Responsivitas dengan grid 5x4 yang lebih kecil dan padat */
     @media (max-width: 1024px) {
       .photo-grid {
-        gap: 15px;
-        max-width: 500px; /* Lebih kecil */
+        gap: 8px;
+        max-width: 800px;
       }
       h1 { font-size: 2.2em; }
       .icon { width: 35px; height: 35px; }
@@ -185,8 +138,8 @@
 
     @media (max-width: 768px) {
       .photo-grid {
-        gap: 12px; /* Dikurangi */
-        max-width: 400px; /* Lebih kecil */
+        gap: 6px;
+        max-width: 700px;
       }
       h1 { font-size: 2em; }
       .icon { width: 30px; height: 30px; }
@@ -195,24 +148,25 @@
 
     @media (max-width: 480px) {
       .photo-grid {
-        gap: 10px; /* Lebih kecil */
-        max-width: 300px; /* Sangat kecil untuk HP */
+        gap: 5px;
+        max-width: 500px;
       }
       h1 { font-size: 1.8em; margin-bottom: 20px; }
       .icons { margin-bottom: 15px; }
       .icon { width: 25px; height: 25px; margin: 0 5px; }
       body { padding: 10px; }
       .particle { display: none; }
+      img.zoomed { transform: scale(1.5) !important; } /* Zoom lebih kecil di mobile */
     }
 
     @media (max-width: 320px) {
       .photo-grid {
-        gap: 8px; /* Lebih kecil lagi */
-        max-width: 250px; /* Minimal */
+        gap: 4px;
+        max-width: 400px;
       }
       h1 { font-size: 1.5em; }
-      .close { width: 40px; height: 40px; font-size: 1.5em; }
       body { padding: 5px; }
+      img.zoomed { transform: scale(1.3) !important; } /* Zoom lebih kecil di layar kecil */
     }
   </style>
 </head>
@@ -235,7 +189,7 @@
     <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
   </div>
 
-  <h1>🎁 Untukmu 🎁</h1>
+  <h1>💖💖 wanitaa tercantikkk 💖💖</h1>
 
   <div class="photo-grid">
     <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 1">
@@ -244,11 +198,21 @@
     <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_44ceadf6.jpg" alt="Ucapan Spesial 4">
     <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_e271b185.jpg" alt="Ucapan Spesial 5">
     <img src="image/WhatsApp Image 2025-11-10 at 14.17.25_2762ca5a.jpg" alt="Ucapan Spesial 6">
-  </div>
-
-  <div class="modal" id="modal">
-    <span class="close" id="close">&times;</span>
-    <img id="modal-img" src="" alt="Gambar Penuh">
+    <!-- Duplikasi gambar untuk mengisi grid 5x4 (20 frame) -->
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 7">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 8">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_5d9cb146.jpg" alt="Ucapan Spesial 9">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_44ceadf6.jpg" alt="Ucapan Spesial 10">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_e271b185.jpg" alt="Ucapan Spesial 11">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.25_2762ca5a.jpg" alt="Ucapan Spesial 12">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 13">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 14">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_5d9cb146.jpg" alt="Ucapan Spesial 15">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_44ceadf6.jpg" alt="Ucapan Spesial 16">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_e271b185.jpg" alt="Ucapan Spesial 17">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.25_2762ca5a.jpg" alt="Ucapan Spesial 18">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 19">
+    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 20">
   </div>
   
   <script>
@@ -257,26 +221,22 @@
       photos.forEach((photo, index) => {
         setTimeout(() => {
           photo.classList.add('show');
-        }, index * 500);
+        }, index * 200);
       });
 
-      const modal = document.getElementById('modal');
-      const modalImg = document.getElementById('modal-img');
-      const closeBtn = document.getElementById('close');
-
+      // Fungsi zoom in-place
       photos.forEach(photo => {
         photo.addEventListener('click', () => {
-          modalImg.src = photo.src;
-          modal.classList.add('show');
+          // Toggle class 'zoomed' untuk membesar/mengecil
+          photo.classList.toggle('zoomed');
         });
       });
 
-      closeBtn.addEventListener('click', () => {
-        modal.classList.remove('show');
-      });
-
-      modal.addEventListener('click', e => {
-        if (e.target === modal) modal.classList.remove('show');
+      // Klik di luar gambar untuk mengecilkan semua (opsional)
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.photo-grid img')) {
+          photos.forEach(photo => photo.classList.remove('zoomed'));
+        }
       });
     };
   </script>
