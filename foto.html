@@ -9,19 +9,17 @@
 
     body {
       min-height: 100vh;
-      height: auto;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
       background: linear-gradient(135deg, #FFAFBD, #ffc3a0, #FF6B9D, #FFD93D);
       background-size: 400% 400%;
       animation: gradientShift 10s ease infinite;
       color: white;
       font-family: 'Poppins', sans-serif;
       text-align: center;
-      overflow: auto;
-      position: relative;
+      overflow-x: hidden;
       padding: 20px;
       box-sizing: border-box;
     }
@@ -117,61 +115,68 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
-    /* Efek zoom in-place */
     img.zoomed {
       position: relative;
       z-index: 10;
-      transform: scale(2) !important; /* Membesar 2x */
+      transform: scale(2) !important;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    /* Responsivitas dengan grid 5x4 yang lebih kecil dan padat */
-    @media (max-width: 1024px) {
-      .photo-grid {
-        gap: 8px;
-        max-width: 800px;
-      }
-      h1 { font-size: 2.2em; }
-      .icon { width: 35px; height: 35px; }
+    /* Tombol di atas */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px; /* beri jarak dengan foto di bawah */
     }
 
+    .next-button {
+      padding: 15px 30px;
+      background: linear-gradient(45deg, #FF6B9D, #FFD93D);
+      color: white;
+      font-size: 1.2em;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* Responsif */
     @media (max-width: 768px) {
-      .photo-grid {
-        gap: 6px;
-        max-width: 700px;
-      }
       h1 { font-size: 2em; }
+      .photo-grid { gap: 6px; max-width: 700px; }
       .icon { width: 30px; height: 30px; }
-      body { padding: 15px; }
+      .next-button { font-size: 1em; padding: 10px 20px; }
     }
 
     @media (max-width: 480px) {
-      .photo-grid {
-        gap: 5px;
-        max-width: 500px;
-      }
-      h1 { font-size: 1.8em; margin-bottom: 20px; }
-      .icons { margin-bottom: 15px; }
-      .icon { width: 25px; height: 25px; margin: 0 5px; }
-      body { padding: 10px; }
-      .particle { display: none; }
-      img.zoomed { transform: scale(1.5) !important; } /* Zoom lebih kecil di mobile */
-    }
-
-    @media (max-width: 320px) {
-      .photo-grid {
-        gap: 4px;
-        max-width: 400px;
-      }
-      h1 { font-size: 1.5em; }
-      body { padding: 5px; }
-      img.zoomed { transform: scale(1.3) !important; } /* Zoom lebih kecil di layar kecil */
+      h1 { font-size: 1.8em; }
+      .icon { width: 25px; height: 25px; }
+      img.zoomed { transform: scale(1.5) !important; }
+      .next-button { font-size: 0.9em; padding: 8px 15px; }
+      .button-container { flex-direction: column; gap: 10px; }
     }
   </style>
 </head>
 <body>
-  <!-- Partikel efek -->
+  <!-- Partikel -->
   <div class="particle" style="left: 5%; animation-duration: 10s;"></div>
   <div class="particle" style="left: 15%; animation-duration: 14s;"></div>
   <div class="particle" style="left: 25%; animation-duration: 8s;"></div>
@@ -189,32 +194,52 @@
     <svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
   </div>
 
-  <h1>💖💖 wanitaa tercantikkk 💖💖</h1>
+  <h1>💖💖 wanita tercantikkk 💖💖</h1>
+
+  <!-- Tombol di atas -->
+  <div class="button-container">
+    <a href="awal.html" class="next-button">Kembali</a>
+    <a href="video.html" class="next-button">Video</a>
+  </div>
 
   <div class="photo-grid">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 1">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 2">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_5d9cb146.jpg" alt="Ucapan Spesial 3">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_44ceadf6.jpg" alt="Ucapan Spesial 4">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_e271b185.jpg" alt="Ucapan Spesial 5">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.25_2762ca5a.jpg" alt="Ucapan Spesial 6">
-    <!-- Duplikasi gambar untuk mengisi grid 5x4 (20 frame) -->
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 7">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 8">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_5d9cb146.jpg" alt="Ucapan Spesial 9">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_44ceadf6.jpg" alt="Ucapan Spesial 10">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_e271b185.jpg" alt="Ucapan Spesial 11">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.25_2762ca5a.jpg" alt="Ucapan Spesial 12">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 13">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 14">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_5d9cb146.jpg" alt="Ucapan Spesial 15">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_44ceadf6.jpg" alt="Ucapan Spesial 16">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.24_e271b185.jpg" alt="Ucapan Spesial 17">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.25_2762ca5a.jpg" alt="Ucapan Spesial 18">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_6bfc76d4.jpg" alt="Ucapan Spesial 19">
-    <img src="image/WhatsApp Image 2025-11-10 at 14.17.23_e7b91278.jpg" alt="Ucapan Spesial 20">
+    <!-- isi gambar seperti sebelumnya -->
+    <img src="image/IMG_20250622_144156.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250403-WA0045.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250408-WA0020.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250408-WA0021.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250415-WA0025.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250415-WA0028.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250415-WA0043.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250418-WA0038.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250420-WA0025.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250507-WA0044.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250509-WA0042.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250509-WA0043.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250509-WA0063.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250512-WA0003.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250515-WA0038.jpg" alt="Ucapan Spesial">
+    <img src="image/IMG-20250522-WA0005.jpg" alt="Ucapan Spesial">
+   <img src="image/IMG-20250531-WA0009.jpg" alt="Ucapan Spesial">
+<img src="image/IMG-20250620-WA0008.jpg" alt="Ucapan Spesial">
+<img src="image/IMG-20250623-WA0038.jpg" alt="Ucapan Spesial">
+<img src="image/IMG-20251030-WA0008.jpeg" alt="Ucapan Spesial">
+<img src="image/IMG-20251030-WA0010.jpeg" alt="Ucapan Spesial">
+<img src="image/Screenshot 2025-03-21 180923.png" alt="Ucapan Spesial">
+<img src="image/Screenshot 2025-03-28 202638.png" alt="Ucapan Spesial">
+<img src="image/Screenshot 2025-03-28 203102.png" alt="Ucapan Spesial">
+<img src="image/Screenshot 2025-03-28 203245.png" alt="Ucapan Spesial">
+<img src="image/Screenshot_20250417_190354_Instagram.jpg" alt="Ucapan Spesial">
+<img src="image/WhatsApp Image 2025-03-09 at 16.05.52.jpeg" alt="Ucapan Spesial">
+<img src="image/WhatsApp Image 2025-03-20 at 12.56.22_6bb9f199.jpg" alt="Ucapan Spesial">
+<img src="image/WhatsApp Image 2025-03-21 at 09.22.28_056ee424.jpg" alt="Ucapan Spesial">
+<img src="image/WhatsApp Image 2025-03-22 at 18.57.38_04f8073d.jpg" alt="Ucapan Spesial">
+<img src="image/WhatsApp Image 2025-03-28 at 18.47.36_29350b59.jpg" alt="Ucapan Spesial">
+<img src="image/WhatsApp Image 2025-03-29 at 19.16.38_b074ae20.jpg" alt="Ucapan Spesial">
+
+    <!-- dst -->
   </div>
-  
+
   <script>
     window.onload = () => {
       const photos = document.querySelectorAll('.photo-grid img');
@@ -224,15 +249,12 @@
         }, index * 200);
       });
 
-      // Fungsi zoom in-place
       photos.forEach(photo => {
         photo.addEventListener('click', () => {
-          // Toggle class 'zoomed' untuk membesar/mengecil
           photo.classList.toggle('zoomed');
         });
       });
 
-      // Klik di luar gambar untuk mengecilkan semua (opsional)
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.photo-grid img')) {
           photos.forEach(photo => photo.classList.remove('zoomed'));
